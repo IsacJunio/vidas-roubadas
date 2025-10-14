@@ -321,11 +321,50 @@ nav button{
 }
 
 .sobre__container p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 30px;
   font-weight: 700;
   color: var(--botao);
   text-align: center;
   font-size: 1.2rem;
+}
+
+/* Botão de Download */
+.download__container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn__download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--botao), var(--botao-hover));
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+  border: 2px solid transparent;
+}
+
+.btn__download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+  background: linear-gradient(135deg, var(--botao-hover), var(--botao));
+  color: white;
+  text-decoration: none;
+}
+
+.btn__download:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(220, 53, 69, 0.3);
+}
+
+.download__icon {
+  font-size: 1.3rem;
 }
 
 @media (max-width: 768px) {
@@ -335,6 +374,11 @@ nav button{
   
   .sobre__container {
     padding: 30px;
+  }
+  
+  .btn__download {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 }
 
@@ -354,6 +398,17 @@ nav button{
   .sobre__container p {
     font-size: 1rem;
     text-align: left;
+  }
+  
+  .btn__download {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .download__icon {
+    font-size: 1.1rem;
   }
 }
 
