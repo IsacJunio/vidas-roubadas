@@ -75,8 +75,9 @@ button:hover{
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(220, 53, 69, 0.4);
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 9999;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(100px);
   display: flex;
   align-items: center;
@@ -90,6 +91,7 @@ button:hover{
 
 .btn-voltar-topo.show {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 

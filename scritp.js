@@ -1,7 +1,9 @@
 // Botão de volta ao topo
 window.addEventListener('scroll', function() {
   const btn = document.getElementById('btnVoltarTopo');
-  if (window.pageYOffset > 300) {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (scrollTop > 300) {
     btn.classList.add('show');
   } else {
     btn.classList.remove('show');
