@@ -1697,6 +1697,9 @@ footer {
   justify-items: center;
   background: black;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 footer p {
@@ -1707,12 +1710,15 @@ footer p {
 
 .footer__nomes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
   margin-top: 20px;
-  max-width: 1400px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer__coluna {
@@ -1722,6 +1728,9 @@ footer p {
   gap: 8px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer__coluna p {
@@ -1735,12 +1744,25 @@ footer p {
   hyphens: auto;
   max-width: 100%;
   white-space: normal;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1200px) {
+  .footer__nomes {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
 }
 
 @media (max-width: 768px) {
   .footer__nomes {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
+    padding: 0 10px;
   }
   
   .footer__coluna {
@@ -1755,8 +1777,9 @@ footer p {
 
 @media (max-width: 600px) {
   .footer__nomes {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 12px;
+    padding: 0 8px;
   }
   
   .footer__coluna p {
@@ -1766,8 +1789,9 @@ footer p {
 
 @media (max-width: 450px) {
   .footer__nomes {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 10px;
+    padding: 0 5px;
   }
   
   .footer__coluna p {
@@ -1794,8 +1818,9 @@ footer p {
 
 @media (max-width: 360px) {
   .footer__nomes {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 8px;
+    padding: 0 3px;
   }
   
   .footer__coluna p {
