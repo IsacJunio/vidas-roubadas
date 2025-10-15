@@ -1,28 +1,24 @@
 // Botão de volta ao topo
 window.onscroll = function () {
   let btn = document.getElementById('btnTopo')
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     btn.style.display = "block";
+    btn.style.opacity = "0.9";
+    btn.style.transform = "scale(1)";
   } else {
-    btn.style.display = "none"
-  };
+    btn.style.opacity = "0";
+    btn.style.transform = "scale(0.8)";
+    setTimeout(() => {
+      if (btn.style.opacity === "0") {
+        btn.style.display = "none";
+      }
+    }, 300);
+  }
 };
 
 function voltarTopo() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ 
+    top: 0, 
+    behavior: "smooth" 
+  });
 }
-
-//Música
-const audio =document.getElementById("musica");
-const btnMusica = document.getElementById("btnMusica");
-
-btnMusica.addEventListener("click", ()=>{
-  if(audio.paused){
-    audio.play();
-    btnMusica.textContent = "⏸️"
-  }else{
-    audio.pause();
-    btnMusica.textContent = "🎵"
-  }
-
-})
