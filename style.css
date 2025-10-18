@@ -1625,25 +1625,28 @@ nav button{
 }
 
 @media (max-width: 450px) {
-  /* reduzir padding da caixa e forçar largura máxima do player para caber em telas pequenas */
+  /* reduzir padding da caixa e forçar o player a usar 100% da largura disponível */
   .video__container {
     padding: 8px;
+    overflow: hidden;              /* evita overflow externo */
+    box-sizing: border-box;
   }
 
   .video__player {
-    width: 100%;
-    max-width: 360px; /* largura máxima do player em celular */
+    width: 100% !important;        /* usar toda a largura do container */
+    max-width: 360px !important;   /* limitar no caso de containers muito largos */
     margin: 0 auto;
     border-radius: 6px;
     overflow: hidden;
+    aspect-ratio: 16 / 9;          /* garante proporção correta */
   }
 
   .video__player video,
   .responsive-video {
-    width: 50% !important;
-    max-width: 360px !important;
+    width: 100% !important;        /* vídeo responsivo, ocupa 100% do wrapper */
+    max-width: 100% !important;
     height: auto !important;
-    max-height: 55vh !important; /* evita ocupar toda a altura da tela */
+    max-height: 240px !important;  /* evita ocupar toda a altura da tela em celulares */
     object-fit: contain !important;
     display: block;
   }
