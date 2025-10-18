@@ -1625,9 +1625,28 @@ nav button{
 }
 
 @media (max-width: 450px) {
-  .video__container { padding: 12px; }
-  .video__player { max-width: 100%; }
-  .video__player video { max-height: 40vh; }
+  /* reduzir padding da caixa e forçar largura máxima do player para caber em telas pequenas */
+  .video__container {
+    padding: 8px;
+  }
+
+  .video__player {
+    width: 100%;
+    max-width: 360px; /* largura máxima do player em celular */
+    margin: 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .video__player video,
+  .responsive-video {
+    width: 100% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    max-height: 55vh !important; /* evita ocupar toda a altura da tela */
+    object-fit: contain !important;
+    display: block;
+  }
 }
 
 
