@@ -1581,11 +1581,12 @@ nav button{
   color: var(--titulo);
 }
 
+/* substitui/ajusta as regras atuais de .video__player / video para responsividade real */
 .video__container {
-  max-width: 1200px;          /* ajustado para o padrão do site */
+  max-width: 1200px;
   margin: 0 auto;
   background: var(--fundo-secao);
-  padding: 30px;
+  padding: 24px;             /* reduzido para caber bem em mobile */
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--borda);
@@ -1595,11 +1596,10 @@ nav button{
   box-sizing: border-box;
 }
 
-/* wrapper interno para controlar proporção do vídeo */
+/* player wrapper — controla largura sem definir altura fixa */
 .video__player {
   width: 100%;
-  max-width: 1000px;         /* largura máxima do player */
-  aspect-ratio: 16 / 9;
+  max-width: 900px;     /* largura máxima no desktop */
   display: block;
   overflow: hidden;
   border-radius: 8px;
@@ -1607,46 +1607,27 @@ nav button{
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* Vídeo responsivo */
-.video__player video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* vídeo responsivo: largura 100% e altura automática (sem crop) */
+.video__player video,
+.responsive-video {
+  width: 100% !important;
+  height: auto !important;
   display: block;
-  border: none;
-  background: black;
+  object-fit: contain !important; /* garante todo o vídeo visível */
+  max-height: 65vh;               /* evita ocupar toda a tela no mobile */
 }
 
-/* pequenas adaptações mobile */
+/* adaptações mobile */
 @media (max-width: 768px) {
-  #video {
-    padding: 40px 16px;
-  }
-
-  #video h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .video__container {
-    padding: 20px;
-  }
-
-  .video__player {
-    max-width: 720px;
-  }
+  .video__container { padding: 18px; }
+  .video__player { max-width: 720px; }
+  .video__player video { max-height: 50vh; }
 }
 
 @media (max-width: 450px) {
-  .video__player {
-    aspect-ratio: 16 / 9;
-    border-radius: 6px;
-    max-width: 100%;
-  }
-
-  #video h2 {
-    font-size: 1.6rem;
-  }
+  .video__container { padding: 12px; }
+  .video__player { max-width: 100%; }
+  .video__player video { max-height: 40vh; }
 }
 
 
