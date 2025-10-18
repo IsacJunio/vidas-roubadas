@@ -1620,7 +1620,7 @@ nav button{
 /* adaptações mobile */
 @media (max-width: 768px) {
   .video__container { padding: 18px; }
-  .video__player { max-width: 720px; }
+  .video__player { max-width: 350px; }
   .video__player video { max-height: 50vh; }
 }
 
@@ -1640,7 +1640,7 @@ nav button{
 
   .video__player video,
   .responsive-video {
-    width: 100% !important;
+    width: 50% !important;
     max-width: 360px !important;
     height: auto !important;
     max-height: 55vh !important; /* evita ocupar toda a altura da tela */
