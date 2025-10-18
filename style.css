@@ -1581,74 +1581,61 @@ nav button{
   color: var(--titulo);
 }
 
-/* substitui/ajusta as regras atuais de .video__player / video para responsividade real */
 .video__container {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   background: var(--fundo-secao);
-  padding: 24px;             /* reduzido para caber bem em mobile */
+  padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--borda);
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 }
 
-/* player wrapper — controla largura sem definir altura fixa */
+/* ✅ Contêiner com proporção 16:9 */
 .video__player {
+  position: relative;
   width: 100%;
-  max-width: 900px;     /* largura máxima no desktop */
-  display: block;
+  max-width: 100%;
+  aspect-ratio: 16 / 9; /* mantém proporção */
   overflow: hidden;
   border-radius: 8px;
-  background: black;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: #000;
 }
 
-/* vídeo responsivo: largura 100% e altura automática (sem crop) */
-.video__player video,
-.responsive-video {
-  width: 100% !important;
-  height: auto !important;
-  display: block;
-  object-fit: contain !important; /* garante todo o vídeo visível */
-  max-height: 65vh;               /* evita ocupar toda a tela no mobile */
+/* ✅ Vídeo preenche todo o contêiner */
+.video__player video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mostra todo o vídeo sem cortar */
 }
 
-/* adaptações mobile */
+/* 📱 Responsividade */
 @media (max-width: 768px) {
-  .video__container { padding: 18px; }
-  .video__player { max-width: 350px; }
-  .video__player video { max-height: 50vh; }
+  #video {
+    padding: 40px 15px;
+  }
+  #video h2 {
+    font-size: 2rem;
+  }
+  .video__container {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 450px) {
-  /* reduzir padding da caixa e forçar o player a usar 100% da largura disponível */
-  .video__container {
-    padding: 8px;
-    overflow: hidden;              /* evita overflow externo */
-    box-sizing: border-box;
+  #video {
+    padding: 30px 10px;
   }
-
+  #video h2 {
+    font-size: 1.6rem;
+  }
   .video__player {
-    width: 100% !important;        /* usar toda a largura do container */
-    max-width: 360px !important;   /* limitar no caso de containers muito largos */
-    margin: 0 auto;
     border-radius: 6px;
-    overflow: hidden;
-    aspect-ratio: 16 / 9;          /* garante proporção correta */
-  }
-
-  .video__player video,
-  .responsive-video {
-    width: 100% !important;        /* vídeo responsivo, ocupa 100% do wrapper */
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: 240px !important;  /* evita ocupar toda a altura da tela em celulares */
-    object-fit: contain !important;
-    display: block;
   }
 }
 
